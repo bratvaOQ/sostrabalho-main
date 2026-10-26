@@ -1,0 +1,1112 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: #f0f4ff;
+    color: #333;
+    padding-top: 100px;
+}
+
+/* ═══ NAVBAR ═══ */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background-color: #e8f0ff;
+    border-bottom: 2px solid #c7d7f5;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+}
+
+.logo img {
+    width: 70px;
+    height: auto;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #2e58a4;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.navbar a:hover,
+.navbar a.ativo {
+    color: #1c3973;
+}
+
+.btn-cadastrar {
+    background-color: #2e58a4;
+    color: #fff !important;
+    padding: 8px 14px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.btn-cadastrar:hover {
+    background-color: #1c3973;
+}
+
+.btn-logout {
+    background: none;
+    border: none;
+    color: #2e58a4;
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: "Poppins", sans-serif;
+    transition: 0.3s;
+    padding: 0;
+}
+
+.btn-logout:hover {
+    color: #1c3973;
+}
+
+/* ═══ MAIN ═══ */
+.main-container {
+    flex: 1;
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 0 20px;
+    width: 100%;
+}
+
+.anunciar-section {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.anunciar-section h1 {
+    text-align: center;
+    margin-bottom: 15px;
+    color: #2e58a4;
+}
+
+.anunciante-info {
+    text-align: center;
+    color: #1c3973;
+    font-size: 15px;
+    margin-bottom: 25px;
+    padding: 10px;
+    background: #f0f4ff;
+    border-radius: 8px;
+}
+
+.anunciante-info strong {
+    color: #2e58a4;
+}
+
+.anunciante-tipo {
+    color: #666;
+    font-size: 13px;
+}
+
+/* ═══ FORM ═══ */
+.form-anunciar {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-anunciar label {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    color: #2e58a4;
+    font-weight: 500;
+    font-size: 14px;
+    position: relative;
+}
+
+.form-anunciar input,
+.form-anunciar textarea,
+.form-anunciar select {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #c7d7f5;
+    font-size: 15px;
+    font-family: "Poppins", sans-serif;
+    background-color: #fff;
+    color: #333;
+    width: 100%;
+}
+
+.form-anunciar textarea {
+    resize: none;
+    overflow: hidden;
+    min-height: 60px;
+}
+
+.form-anunciar input:focus,
+.form-anunciar textarea:focus {
+    border-color: #2e58a4;
+    outline: none;
+    box-shadow: 0 0 4px rgba(46, 88, 164, 0.5);
+}
+
+.localizacao-group {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 10px;
+}
+
+/* ═══ BOTÕES ═══ */
+.perfil-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 15px;
+    flex-wrap: wrap;
+}
+
+.perfil-actions button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: 500;
+    font-family: "Poppins", sans-serif;
+    font-size: 15px;
+}
+
+.perfil-actions .btn-cadastrar {
+    background-color: #2e58a4;
+    color: #fff;
+}
+
+.perfil-actions button:hover {
+    background-color: #1c3973;
+    color: #fff;
+}
+
+/* ═══ MENSAGENS ═══ */
+.msg-sucesso {
+    background: #e6f4ea;
+    color: #1b5e20;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.msg-erro {
+    background: #ffecec;
+    color: #b71c1c;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.msg-erro ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+/* ═══ MINHAS VAGAS ═══ */
+.vagas-cadastradas .sem-vagas {
+    text-align: center;
+    color: #2e58a4;
+    font-size: 15px;
+}
+
+.vaga-item {
+    background: #f8faff;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #c7d7f5;
+    transition: 0.3s;
+}
+
+.vaga-item:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.vaga-item h3 {
+    color: #2e58a4;
+    margin-bottom: 5px;
+    word-wrap: break-word;
+}
+
+.vaga-empresa {
+    font-size: 14px;
+    color: #1c3973;
+    margin-bottom: 8px;
+    word-wrap: break-word;
+}
+
+.vaga-desc {
+    font-size: 14px;
+    margin-bottom: 8px;
+    color: #333;
+    word-wrap: break-word;
+}
+
+.vaga-salario {
+    font-size: 14px;
+    color: #2e58a4;
+}
+
+.vaga-btns {
+    margin-top: 12px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.btn-editar {
+    padding: 8px 16px;
+    background: #e8f0ff;
+    color: #2e58a4;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+    display: inline-block;
+    text-align: center;
+}
+
+.btn-editar:hover {
+    background: #2e58a4;
+    color: #fff;
+}
+
+.btn-excluir {
+    padding: 8px 16px;
+    background: #b71c1c;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: 0.3s;
+    font-family: "Poppins", sans-serif;
+}
+
+.btn-excluir:hover {
+    background: #7f1010;
+}
+
+/* ═══ SELECT CUSTOMIZADO ═══ */
+.select-custom {
+    position: relative;
+    width: 100%;
+    font-family: "Poppins", sans-serif;
+    user-select: none;
+}
+
+.select-selected {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #c7d7f5;
+    background-color: #fff;
+    color: #333;
+    font-size: 15px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.3s;
+}
+
+.select-selected:hover {
+    border-color: #2e58a4;
+}
+
+.select-selected.open {
+    border-color: #2e58a4;
+    box-shadow: 0 0 4px rgba(46, 88, 164, 0.5);
+}
+
+.select-selected.placeholder {
+    color: #888;
+}
+
+.select-selected::after {
+    content: "";
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 6px solid #2e58a4;
+    transition: transform 0.3s;
+    margin-left: 10px;
+}
+
+.select-selected.open::after {
+    transform: rotate(180deg);
+}
+
+.select-items {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    right: 0;
+    background: #fff;
+    border: 1px solid #c7d7f5;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    max-height: 180px;
+    overflow-y: auto;
+    z-index: 1000;
+    list-style: none;
+    margin: 0;
+    padding: 4px 0;
+}
+
+.select-hide {
+    display: none;
+}
+
+.select-items.open-up {
+    top: auto;
+    bottom: calc(100% + 4px);
+}
+
+.select-items li {
+    padding: 10px 14px;
+    color: #333;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.select-items li:hover {
+    background: #e8f0ff;
+    color: #2e58a4;
+}
+
+.select-items li.selected {
+    background: #2e58a4;
+    color: #fff;
+    font-weight: 500;
+}
+
+.select-items::-webkit-scrollbar {
+    width: 6px;
+}
+
+.select-items::-webkit-scrollbar-track {
+    background: #f0f4ff;
+}
+
+.select-items::-webkit-scrollbar-thumb {
+    background: #c7d7f5;
+    border-radius: 3px;
+}
+
+.select-items::-webkit-scrollbar-thumb:hover {
+    background: #2e58a4;
+}
+
+/* ═══ FOOTER ═══ */
+.footer {
+    flex-shrink: 0;
+    background-color: #e3eeff;
+    color: #2e58a4;
+    padding: 15px 30px;
+    border-top: 2px solid #c7d7f5;
+    width: 100%;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-left {
+    display: flex;
+    align-items: center;
+}
+
+.footer-center {
+    text-align: center;
+    flex: 1;
+}
+
+.footer-img {
+    width: 40px;
+    height: auto;
+}
+
+/* ═══ EXTRAS ═══ */
+.btn-cancelar {
+    padding: 12px 25px;
+    background: #e8f0ff;
+    color: #2e58a4;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+    display: inline-block;
+    text-align: center;
+}
+
+.btn-cancelar:hover {
+    background: #2e58a4;
+    color: #fff;
+}
+
+input:invalid,
+select:invalid,
+textarea:invalid {
+    scroll-margin-top: 130px;
+}
+
+input,
+select,
+textarea {
+    scroll-margin-top: 130px;
+}
+
+.form-anunciar .campo-erro,
+.form-anunciar .select-selected.campo-erro {
+    border-color: #b71c1c !important;
+    box-shadow: 0 0 4px rgba(183, 28, 28, 0.4) !important;
+    animation: shake 0.3s;
+}
+
+@keyframes shake {
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-5px);
+    }
+    75% {
+        transform: translateX(5px);
+    }
+}
+
+.btn-candidatos {
+    padding: 8px 16px;
+    background: #2e58a4;
+    color: #fff;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+    display: inline-block;
+    font-size: 14px;
+    font-family: "Poppins", sans-serif;
+    text-align: center;
+}
+
+.btn-candidatos:hover {
+    background: #1c3973;
+}
+
+.link-usuario {
+    color: inherit;
+    text-decoration: none;
+    transition: 0.2s;
+    border-bottom: 1px dashed transparent;
+}
+
+.link-usuario:hover {
+    color: #1c3973;
+    border-bottom-color: #1c3973;
+}
+
+/* ═══ PÁGINA DE CANDIDATOS ═══ */
+.btn-voltar {
+    display: inline-block;
+    color: #2e58a4;
+    text-decoration: none;
+    font-weight: 500;
+    margin-bottom: 20px;
+    transition: 0.3s;
+}
+
+.btn-voltar:hover {
+    color: #1c3973;
+}
+
+.vaga-info-topo {
+    background: #f0f4ff;
+    padding: 15px 20px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    border-left: 4px solid #2e58a4;
+}
+
+.vaga-info-topo h2 {
+    color: #2e58a4;
+    margin-bottom: 5px;
+    font-size: 20px;
+    word-wrap: break-word;
+}
+
+.vaga-info-topo p {
+    color: #1c3973;
+    font-size: 14px;
+}
+
+.total-candidatos {
+    color: #1c3973;
+    font-size: 15px;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.sem-candidatos {
+    text-align: center;
+    padding: 40px 20px;
+    color: #666;
+    background: #f8faff;
+    border-radius: 10px;
+    border: 1px dashed #c7d7f5;
+}
+
+.sem-candidatos p {
+    margin-bottom: 8px;
+}
+
+/* ═══ CARD DE CANDIDATO ═══ */
+.candidato-card {
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #c7d7f5;
+    transition: 0.3s;
+}
+
+.candidato-card:hover {
+    box-shadow: 0 4px 15px rgba(46, 88, 164, 0.1);
+}
+
+.candidato-header {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.candidato-avatar,
+.candidato-iniciais {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.candidato-avatar {
+    object-fit: cover;
+    border: 3px solid #2e58a4;
+}
+
+.candidato-iniciais {
+    background: linear-gradient(135deg, #2e58a4, #1c3973);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    font-weight: 700;
+    border: 3px solid #2e58a4;
+}
+
+.candidato-info {
+    flex: 1;
+    min-width: 200px;
+}
+
+.candidato-info h3 {
+    color: #2e58a4;
+    margin-bottom: 5px;
+    font-size: 18px;
+    word-wrap: break-word;
+}
+
+.candidato-cargo {
+    color: #1c3973;
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.candidato-local {
+    color: #555;
+    font-size: 13px;
+    margin-bottom: 4px;
+}
+
+.candidato-email {
+    color: #555;
+    font-size: 13px;
+    word-wrap: break-word;
+}
+
+.candidato-status {
+    align-self: flex-start;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-weight: 500;
+    font-size: 13px;
+}
+
+.status-pendente {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.status-aprovado {
+    background: #d4edda;
+    color: #155724;
+}
+
+.status-rejeitado {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+.candidato-bio,
+.candidato-mensagem {
+    background: #f8faff;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 12px;
+    border-left: 3px solid #2e58a4;
+}
+
+.candidato-bio strong,
+.candidato-mensagem strong {
+    display: block;
+    color: #2e58a4;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.candidato-bio p,
+.candidato-mensagem p {
+    color: #333;
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 0;
+    word-wrap: break-word;
+}
+
+.candidato-data {
+    color: #888;
+    font-size: 12px;
+    margin-top: 12px;
+    text-align: right;
+}
+
+/* ═══ BOTÕES DE STATUS ═══ */
+.form-status {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.btn-status {
+    padding: 8px 14px;
+    border-radius: 20px;
+    font-weight: 500;
+    font-size: 13px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-family: "Poppins", sans-serif;
+    border: 2px solid;
+    background: #fff;
+}
+
+.btn-status-pendente {
+    color: #856404;
+    border-color: #ffc107;
+}
+
+.btn-status-pendente:hover,
+.btn-status-pendente.ativo {
+    background: #ffc107;
+    color: #fff;
+}
+
+.btn-status-aprovado {
+    color: #155724;
+    border-color: #28a745;
+}
+
+.btn-status-aprovado:hover,
+.btn-status-aprovado.ativo {
+    background: #28a745;
+    color: #fff;
+}
+
+.btn-status-rejeitado {
+    color: #721c24;
+    border-color: #dc3545;
+}
+
+.btn-status-rejeitado:hover,
+.btn-status-rejeitado.ativo {
+    background: #dc3545;
+    color: #fff;
+}
+
+/* ═══ EXPIRAÇÃO DE VAGAS ═══ */
+.vaga-expiracao {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+
+.badge-ativa,
+.badge-expirando,
+.badge-expirada {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.badge-ativa {
+    background: #d4edda;
+    color: #155724;
+}
+
+.badge-expirando {
+    background: #fff3cd;
+    color: #856404;
+    animation: pulse 2s infinite;
+}
+
+.badge-expirada {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+@keyframes pulse {
+    0%,
+    100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.6;
+    }
+}
+
+.btn-renovar {
+    padding: 6px 14px;
+    background: #2e58a4;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 13px;
+    font-family: "Poppins", sans-serif;
+    transition: 0.3s;
+}
+
+.btn-renovar:hover {
+    background: #1c3973;
+}
+
+.btn-renovar:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* ═══ AUTOCOMPLETE CIDADES/BAIRROS ═══ */
+.sugestoes-cidades {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border: 1px solid #c7d7f5;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 1000;
+    list-style: none;
+    margin: 4px 0 0;
+    padding: 4px 0;
+}
+
+.sugestao-item {
+    padding: 10px 14px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #333;
+    transition: 0.2s;
+}
+
+.sugestao-item:hover {
+    background: #e8f0ff;
+    color: #2e58a4;
+}
+
+.sugestao-item.aviso {
+    color: #856404;
+    background: #fff3cd;
+    cursor: not-allowed;
+    font-style: italic;
+}
+
+.sugestao-item.aviso:hover {
+    background: #fff3cd;
+    color: #856404;
+}
+
+/* ═══ BOTÕES CONVERSAR ═══ */
+.btn-conversar,
+.btn-conversar-candidato {
+    display: inline-block;
+    padding: 8px 16px;
+    background: #10b981;
+    color: #fff !important;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 14px;
+    transition: 0.3s;
+    font-family: "Poppins", sans-serif;
+    text-align: center;
+}
+
+.btn-conversar:hover,
+.btn-conversar-candidato:hover {
+    background: #059669;
+    transform: translateY(-2px);
+}
+
+/* ═══════════════════════════════════════════════ */
+/* ═══ RESPONSIVO - TABLET (até 900px) ═══ */
+/* ═══════════════════════════════════════════════ */
+@media (max-width: 900px) {
+    body {
+        padding-top: 120px;
+    }
+
+    .navbar {
+        padding: 12px 20px;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .navbar ul {
+        justify-content: center;
+        gap: 12px;
+        font-size: 14px;
+    }
+
+    .logo img {
+        width: 55px;
+    }
+
+    .anunciar-section {
+        padding: 25px 20px;
+    }
+}
+
+/* ═══════════════════════════════════════════════ */
+/* ═══ RESPONSIVO - MOBILE (até 768px) ═══ */
+/* ═══════════════════════════════════════════════ */
+@media (max-width: 768px) {
+    .localizacao-group {
+        grid-template-columns: 1fr;
+    }
+
+    .vaga-btns {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .vaga-btns > * {
+        width: 100%;
+        text-align: center;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-left {
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+
+    .footer-center {
+        margin: 10px 0;
+    }
+
+    .candidato-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .candidato-info {
+        text-align: center;
+        min-width: 0;
+        width: 100%;
+    }
+
+    .candidato-data {
+        text-align: center;
+    }
+
+    .candidato-status {
+        width: 100%;
+    }
+
+    .form-status {
+        justify-content: center;
+    }
+
+    .btn-status {
+        flex: 1;
+        min-width: 100px;
+    }
+
+    .perfil-actions {
+        flex-direction: column;
+    }
+
+    .perfil-actions button,
+    .perfil-actions a {
+        width: 100%;
+    }
+}
+
+/* ═══════════════════════════════════════════════ */
+/* ═══ RESPONSIVO - MOBILE PEQUENO (até 480px) ═══ */
+/* ═══════════════════════════════════════════════ */
+@media (max-width: 480px) {
+    body {
+        padding-top: 140px;
+    }
+
+    .main-container {
+        padding: 0 15px;
+        margin: 20px auto;
+    }
+
+    .navbar {
+        padding: 10px 15px;
+    }
+
+    .navbar ul {
+        gap: 10px;
+        font-size: 13px;
+    }
+
+    .anunciar-section {
+        padding: 20px 15px;
+        border-radius: 12px;
+    }
+
+    .anunciar-section h1 {
+        font-size: 22px;
+    }
+
+    .anunciante-info {
+        font-size: 13px;
+        padding: 8px;
+    }
+
+    .form-anunciar input,
+    .form-anunciar textarea,
+    .form-anunciar select {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .form-anunciar label {
+        font-size: 13px;
+    }
+
+    .vaga-item {
+        padding: 15px;
+    }
+
+    .vaga-item h3 {
+        font-size: 16px;
+    }
+
+    .candidato-card {
+        padding: 15px;
+    }
+
+    .candidato-avatar,
+    .candidato-iniciais {
+        width: 70px;
+        height: 70px;
+    }
+
+    .candidato-iniciais {
+        font-size: 22px;
+    }
+
+    .candidato-info h3 {
+        font-size: 16px;
+    }
+
+    .form-status {
+        flex-direction: column;
+    }
+
+    .btn-status {
+        width: 100%;
+    }
+
+    .vaga-info-topo {
+        padding: 12px 15px;
+    }
+
+    .vaga-info-topo h2 {
+        font-size: 18px;
+    }
+
+    .btn-editar,
+    .btn-excluir,
+    .btn-candidatos,
+    .btn-renovar,
+    .btn-conversar,
+    .btn-conversar-candidato {
+        width: 100%;
+        display: block;
+    }
+}

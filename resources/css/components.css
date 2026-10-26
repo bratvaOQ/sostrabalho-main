@@ -1,0 +1,452 @@
+/* ═══ TOASTS ═══ */
+#toast-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 99999;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    pointer-events: none;
+    max-width: calc(100% - 40px);
+}
+
+.toast {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    background: #fff;
+    min-width: 280px;
+    max-width: 400px;
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    pointer-events: auto;
+    animation: slideInRight 0.3s ease;
+    border-left: 4px solid #2e58a4;
+    position: relative;
+    overflow: hidden;
+}
+
+.toast.removing {
+    animation: slideOutRight 0.3s ease forwards;
+}
+
+.toast-icon {
+    font-size: 22px;
+    flex-shrink: 0;
+}
+
+.toast-content {
+    flex: 1;
+    color: #333;
+    word-wrap: break-word;
+    min-width: 0;
+}
+
+.toast-close {
+    background: none;
+    border: none;
+    color: #999;
+    cursor: pointer;
+    font-size: 20px;
+    padding: 0;
+    line-height: 1;
+    transition: color 0.2s;
+    flex-shrink: 0;
+}
+
+.toast-close:hover {
+    color: #333;
+}
+
+/* Tipos de toast */
+.toast.success {
+    border-left-color: #10b981;
+}
+.toast.success .toast-icon {
+    color: #10b981;
+}
+
+.toast.error {
+    border-left-color: #ef4444;
+}
+.toast.error .toast-icon {
+    color: #ef4444;
+}
+
+.toast.info {
+    border-left-color: #3b82f6;
+}
+.toast.info .toast-icon {
+    color: #3b82f6;
+}
+
+.toast.warning {
+    border-left-color: #f59e0b;
+}
+.toast.warning .toast-icon {
+    color: #f59e0b;
+}
+
+/* ═══ BARRA DE PROGRESSO ═══ */
+.toast-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    background: currentColor;
+    opacity: 0.5;
+    animation: progressBar linear forwards;
+    transform-origin: left;
+}
+
+.toast.success .toast-progress {
+    background: #10b981;
+}
+
+.toast.error .toast-progress {
+    background: #ef4444;
+}
+
+.toast.info .toast-progress {
+    background: #3b82f6;
+}
+
+.toast.warning .toast-progress {
+    background: #f59e0b;
+}
+
+@keyframes progressBar {
+    from {
+        width: 100%;
+    }
+    to {
+        width: 0%;
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(400px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOutRight {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(400px);
+        opacity: 0;
+    }
+}
+
+/* ═══ LOADING ═══ */
+.loading-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.9);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 99998;
+    backdrop-filter: blur(3px);
+    padding: 20px;
+}
+
+.loading-spinner {
+    width: 60px;
+    height: 60px;
+    border: 5px solid #e8f0ff;
+    border-top: 5px solid #2e58a4;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+.loading-text {
+    margin-top: 15px;
+    color: #2e58a4;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    text-align: center;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Loading em botões */
+.btn-loading {
+    position: relative;
+    color: transparent !important;
+    pointer-events: none;
+}
+
+.btn-loading::after {
+    content: "";
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    top: 50%;
+    left: 50%;
+    margin-left: -9px;
+    margin-top: -9px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+/* ═══ MODAL CONFIRMAÇÃO ═══ */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99997;
+    animation: fadeIn 0.2s ease;
+    backdrop-filter: blur(3px);
+    padding: 15px;
+}
+
+.modal-overlay.closing {
+    animation: fadeOut 0.2s ease forwards;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    max-width: 420px;
+    width: 100%;
+    text-align: center;
+    animation: modalSlideUp 0.3s ease;
+    font-family: "Poppins", sans-serif;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal-icon {
+    font-size: 50px;
+    margin-bottom: 15px;
+}
+
+.modal-icon.warning {
+    color: #f59e0b;
+}
+.modal-icon.danger {
+    color: #ef4444;
+}
+.modal-icon.success {
+    color: #10b981;
+}
+.modal-icon.info {
+    color: #3b82f6;
+}
+
+.modal-title {
+    font-size: 20px;
+    color: #2e58a4;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.modal-message {
+    color: #555;
+    margin-bottom: 25px;
+    line-height: 1.6;
+    font-size: 15px;
+    word-wrap: break-word;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.modal-btn {
+    padding: 10px 25px;
+    border: none;
+    border-radius: 8px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s;
+    min-width: 100px;
+}
+
+.modal-btn-cancel {
+    background: #e8f0ff;
+    color: #2e58a4;
+}
+
+.modal-btn-cancel:hover {
+    background: #c7d7f5;
+}
+
+.modal-btn-confirm {
+    background: #2e58a4;
+    color: #fff;
+}
+
+.modal-btn-confirm:hover {
+    background: #1c3973;
+}
+
+.modal-btn-danger {
+    background: #ef4444;
+    color: #fff;
+}
+
+.modal-btn-danger:hover {
+    background: #b91c1c;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes modalSlideUp {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* ═══ RESPONSIVO - TABLET (até 768px) ═══ */
+@media (max-width: 768px) {
+    #toast-container {
+        top: 15px;
+        right: 15px;
+        left: 15px;
+        max-width: none;
+    }
+
+    .toast {
+        min-width: 0;
+        max-width: none;
+        width: 100%;
+        padding: 12px 15px;
+        font-size: 13px;
+    }
+
+    .toast-icon {
+        font-size: 20px;
+    }
+
+    .modal-content {
+        padding: 25px 20px;
+    }
+
+    .modal-icon {
+        font-size: 45px;
+    }
+
+    .modal-title {
+        font-size: 18px;
+    }
+
+    .modal-message {
+        font-size: 14px;
+    }
+}
+
+/* ═══ RESPONSIVO - MOBILE (até 480px) ═══ */
+@media (max-width: 480px) {
+    #toast-container {
+        top: 10px;
+        right: 10px;
+        left: 10px;
+        gap: 8px;
+    }
+
+    .toast {
+        padding: 10px 12px;
+        font-size: 13px;
+        border-radius: 8px;
+        gap: 10px;
+    }
+
+    .toast-icon {
+        font-size: 18px;
+    }
+
+    .toast-close {
+        font-size: 18px;
+    }
+
+    .loading-spinner {
+        width: 50px;
+        height: 50px;
+        border-width: 4px;
+    }
+
+    .loading-text {
+        font-size: 14px;
+    }
+
+    .modal-content {
+        padding: 20px 15px;
+        border-radius: 12px;
+    }
+
+    .modal-icon {
+        font-size: 40px;
+        margin-bottom: 12px;
+    }
+
+    .modal-title {
+        font-size: 17px;
+    }
+
+    .modal-message {
+        font-size: 13px;
+        margin-bottom: 20px;
+    }
+
+    .modal-actions {
+        flex-direction: column-reverse;
+        gap: 8px;
+    }
+
+    .modal-btn {
+        width: 100%;
+        padding: 12px 20px;
+    }
+}
